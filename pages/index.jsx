@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import SmallCard from '../components/SmallCard';
 import MediumCard from "../components/MediumCard";
 import LargeCard from '../components/LargeCard';
+import Footer from '../components/Footer';
 
 export default function Home({exploreData,cardsData}) {
   return (
@@ -18,7 +19,7 @@ export default function Home({exploreData,cardsData}) {
       {/* banner */}
       <Banner/>
       {/* main */}
-      <main className="max-w-6xl p-4 px-8 mx-auto bg-white shadow-sm md:px-16">
+      <main className="max-w-6xl p-4 px-8 pb-10 mx-auto bg-white shadow-sm rounded-b-2xl md:px-16">
           <section className="pt-2">
             <h1 className="text-4xl font-semibold">Explore nearby</h1>
             <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -46,7 +47,7 @@ export default function Home({exploreData,cardsData}) {
 
             />
       </main>
-      
+      <Footer/>
     </div>
   )
 }
