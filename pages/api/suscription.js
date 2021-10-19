@@ -1,13 +1,15 @@
 import connectDB from "../../middleware/db";
 import Client from "../../models/client";
 
- function handler(req, res) {
+ async function handler(req, res) {
     if (req.method === 'POST') {
-        console.log(req.body);
-     return Client.create(req.body);
+       // console.log(req.body);
+     const ss=await Client.create(req.body);
+     return res.json(ss)
     } else {
       // Handle any other HTTP method
-      return Client.find({});
+      const cc=await Client.find({});
+      return res.json(cc)
     }
   }
 

@@ -1,11 +1,13 @@
 import connectDB from "../../middleware/db";
 import Contact from "../../models/contact";
 
- function handler(req, res) {
+async function handler(req, res) {
     if (req.method === 'POST') {
-      return Contact.create(req.body);
+      const t=await Contact.create(req.body);
+      return res.json(t)
     } else {
-      return Contact.find({});
+      const a=await Contact.find({});
+      return res.json(a)
     }
   }
 

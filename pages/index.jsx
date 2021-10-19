@@ -32,7 +32,7 @@ export default function Home({exploreData,cardsData}) {
       </Head>
 
       {/* header */}
-      <Header/>
+      
       {/* banner */}
       <Banner/>
       {/* main */}
