@@ -1,8 +1,7 @@
 import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import dbConnect from "../middleware/dbConnexion";
-import Client from "../models/client";
+
 function MediumCard({house}) {
 
   const [phone,setPhone]=useState('')
