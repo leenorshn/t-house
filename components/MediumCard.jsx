@@ -1,12 +1,29 @@
+import axios from "axios";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import dbConnect from "../middleware/dbConnexion";
+import Client from "../models/client";
 function MediumCard({house}) {
 
   const [phone,setPhone]=useState('')
 
-  const saveSuscription=()=>{
-    
+  const saveSuscription=async(e)=>{
+    e.preventDefault()
+    try {
+      const {data}=await axios.post("/api/suscription",{phone})
+      console.log(data);
+      setPhone("")
+    } catch (error) {
+      console.log(error);
+      setPhone("")
+    }
   }
+
+  useEffect(()=>{
+    setInterval(()=>{
+
+    },3000)
+  },[])
     return (
         <div className="max-w-6xl mx-auto sm:max-w-3xl lg:max-w-7xl ">
             <div className="relative px-6 py-10 overflow-hidden bg-indigo-500 rounded shadow-sm sm:px-12 sm:py-20">
@@ -49,6 +66,8 @@ function MediumCard({house}) {
                     <input
                       id="cta-phone"
                       type="phone"
+                      value={phone}
+                      onChange={(e)=>setPhone(e.target.value)}
                       className="block w-full px-5 py-3 text-base text-gray-900 placeholder-gray-500 border border-transparent rounded-md shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500"
                       placeholder="Enter your phone"
                     />
@@ -56,6 +75,7 @@ function MediumCard({house}) {
                   <div className="mt-4 sm:mt-0 sm:ml-3">
                     <button
                       type="submit"
+                      onClick={(e)=>saveSuscription(e)}
                       className="block w-full px-5 py-3 text-base font-medium text-white bg-gray-900 border border-transparent rounded-md shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10"
                     >
                       Notifie moi

@@ -15,8 +15,22 @@
   ```
 */
 import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
+import axios from 'axios'
+import { useState } from 'react'
 
 export default function ContactPage() {
+  const [phone,setPhone]=useState('')
+  const [name,setName]=useState('')
+  const [message,setMessage]=useState('')
+
+  const enregistrerMessage=async(e)=>{
+    e.preventDefault()
+    const {data}=await axios.post("/api/contact",{phone,name,message})
+    console.log(data);
+    setMessage("")
+    setName("")
+    setPhone("")
+  }
   return (
     <div className="relative bg-white">
       <div className="absolute inset-0">
@@ -67,6 +81,8 @@ export default function ContactPage() {
                   name="full-name"
                   id="full-name"
                   autoComplete="name"
+                  value={name}
+                  onChange={(e)=>setName(e.target.value)}
                   className="block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Nom complet"
                 />
@@ -80,6 +96,8 @@ export default function ContactPage() {
                   type="text"
                   name="phone"
                   id="phone"
+                  value={phone}
+                  onChange={(e)=>setPhone(e.target.value)}
                   autoComplete="tel"
                   className="block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Phone"
@@ -95,11 +113,13 @@ export default function ContactPage() {
                   rows={4}
                   className="block w-full px-4 py-3 placeholder-gray-500 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Message"
-                  defaultValue={''}
+                  value={message}
+                  onChange={(e)=>setMessage(e.target.value)}
                 />
               </div>
               <div>
                 <button
+                onClick={(e)=>enregistrerMessage(e)}
                   type="submit"
                   className="inline-flex justify-center px-6 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >

@@ -8,8 +8,6 @@ const connectDB = handler => async (req, res) => {
   // Use new db connection
   await mongoose.connect("mongodb://localhost:27017/gloria", {
     useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
     useNewUrlParser: true
   });
   return handler(req, res);
