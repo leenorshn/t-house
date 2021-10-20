@@ -69,7 +69,7 @@ export default function ContactPage() {
             
           </div>
         </div>
-        <div className="px-4 py-16 bg-white sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
+        <div className="px-4 py-16 bg-gray-100 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
           <div className="max-w-lg mx-auto lg:max-w-none">
             <form action="#" method="POST" className="grid grid-cols-1 gap-y-6">
               <div>
@@ -83,7 +83,7 @@ export default function ContactPage() {
                   autoComplete="name"
                   value={name}
                   onChange={(e)=>setName(e.target.value)}
-                  className="block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                  className="block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Nom complet"
                 />
               </div>
@@ -99,7 +99,7 @@ export default function ContactPage() {
                   value={phone}
                   onChange={(e)=>setPhone(e.target.value)}
                   autoComplete="tel"
-                  className="block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                  className="block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-md shadow focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Phone"
                 />
               </div>

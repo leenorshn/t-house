@@ -6,7 +6,7 @@ const connectDB = handler => async (req, res) => {
     return handler(req, res);
   }
   // Use new db connection
-  await mongoose.connect("mongodb://localhost:27017/gloria", {
+  await mongoose.connect("mongodb+srv://leenorshn:SU5inlRbb4KDJeyR@cluster0.xhwvl.gcp.mongodb.net/gloria?authSource=admin&replicaSet=atlas-fdxdca-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true", {
     useUnifiedTopology: true,
     useNewUrlParser: true
   });
